@@ -3,6 +3,19 @@ import pymongo
 c = pymongo.MongoClient("mongodb://localhost:27017")
 db = c["College"]
 coll=db["stud_list"]
+#r=coll.find({"gender":"female","course":"MCA"},{"name.fname":1,"name.lname":1,"_id":0})
+#for x in r:
+	#print(x)
+#print(coll.find_one({"course":"MCA"},{"name.fname":1,"mark":1},sort=[("mark",-1)]))
+
+#print(coll.find_one({"grade":"A+","gender":"female"}))
+#a=coll.find({"grade":"A+","gender":"female"},{"_id":0})
+#for x in a:
+#	print(x,"\n")
+#
+#for x in coll.find({"course":"Mechanical"},{"mark":1,"name.fname":1},).sort("mark",-1).limit(15):
+#	print(x)
+#
 
 #r = coll.find({"gender":"female"},{"name.fname":1,"name.lname":1,"_id":0,"mark":1,"phone":1,"grade"})
 #for x in r:
