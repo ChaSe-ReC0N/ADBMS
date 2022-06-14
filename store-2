@@ -1,0 +1,14 @@
+use employees;
+
+delimiter //
+create procedure inc_salary(IN id int, IN percentage float)
+begin
+update details set salary=salary*((100+percentage)/100) where empno=id;
+end //
+
+delimiter ;
+call inc_salary(123, 10);
+call inc_salary(124, 12.5);
+call inc_salary(126, 13.5);
+
+select * from details;

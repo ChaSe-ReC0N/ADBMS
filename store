@@ -1,0 +1,22 @@
+create database store;
+use store;
+create table product(
+prod_id int primary key,
+prod_name varchar(100),
+prod_qty int,
+prod_price float);
+
+delimiter //
+create procedure insert_product(IN pid int, IN pname varchar(100), IN pqty int, IN price float)
+begin
+if (price>0 && pqty>=0) then 
+insert into product values(pid, pname, pqty, price);
+end if;
+end //
+
+delimiter ;
+call insert_product(1234, "Cookies", 2, 100);
+call insert_product(1132, "Brush", 3, 30);
+call insert_product(1101, "Soap", 3, 0);
+
+select * from product;
